@@ -1,15 +1,15 @@
 # relations.R
 # Logical functions for temporal relations between periods (Levy's typology)
 
-
 #' Temporal relations
 #' 
 #' These functions test for the logical relation between two periods according
 #' to Levy's typology (Levy et al. 2021 <https://doi.org/10.1016/j.jas.2020.105225>;
 #' Levy in press).
 #'
-#' @param x,y Pair of periods to test the relation between, each specified as a 
-#'   two-element numeric vector with start and end times.
+#' @param x,y Pair(s) of periods to test the relation between, each specified as 
+#'   a two-element numeric vector with start and end times. Use lists to give
+#'   multiple periods.
 #' @param strict By default, comparison is inclusive (i.e. using `<=` and `>=`).
 #'   Use `strict = FALSE` for strict comparison (i.e. using `<` and `>`).
 #'
@@ -197,13 +197,15 @@ equal_to <- function(x, y, strict = FALSE) {
 #' @noRd
 #' @keywords internal
 lt <- function(x, y, strict = FALSE) {
-  ifelse(strict, x < y, x <= y)
+  if (isTRUE(strict)) x < y
+  else x <= y
 }
 
 #' @noRd
 #' @keywords internal
 gt <- function(x, y, strict = FALSE) {
-  ifelse(strict, x > y, x >= y)
+  if (isTRUE(strict)) x > y
+  else x >= y
 }
 
 #' @noRd

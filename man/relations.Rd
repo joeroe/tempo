@@ -77,8 +77,9 @@ ended_by(x, y, strict = FALSE)
 equal_to(x, y, strict = FALSE)
 }
 \arguments{
-\item{x, y}{Pair of periods to test the relation between, each specified as a
-two-element numeric vector with start and end times.}
+\item{x, y}{Pair(s) of periods to test the relation between, each specified as
+a two-element numeric vector with start and end times. Use lists to give
+multiple periods.}
 
 \item{strict}{By default, comparison is inclusive (i.e. using \code{<=} and \code{>=}).
 Use \code{strict = FALSE} for strict comparison (i.e. using \code{<} and \code{>}).}
