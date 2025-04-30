@@ -5,6 +5,11 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/tempo)](https://CRAN.R-project.org/package=tempo)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R-CMD-check](https://github.com/joeroe/tempo/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/joeroe/tempo/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 ***tempo*** is an R package that provides a formal representation of
