@@ -9,5 +9,19 @@ NULL
 #'
 #' @import rlang
 #' @keywords internal
-#' @name chronograph-rlang
+#' @name tempo-rlang
+NULL
+
+#' Internal vctrs methods
+#'
+#' @import vctrs
+#' @keywords internal
+#' @name tempo-vctrs
+NULL
+
+#' Internal zeallot methods
+#'
+#' @import zeallot
+#' @keywords internal
+#' @name tempo-zeallot
 NULL
