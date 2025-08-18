@@ -3,6 +3,7 @@
 
 #' @export
 intv_duration <- function(x) {
+  # TODO: yr class should be dropped but isn't
   intv_end(x) - intv_start(x)
 }
 
@@ -23,5 +24,6 @@ seq.tempo_interval <- function(x, ...) {
     )
   }
 
+  # TODO: yr class is dropped when it shouldn't be
   seq(from = intv_start(x), to = intv_end(x), ...)
 }

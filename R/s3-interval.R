@@ -3,7 +3,7 @@
 
 #' Vectors of temporal intervals
 #'
-#' The `interval` class represents the interval between to points in time.
+#' The `interval` class represents the interval between two points in time.
 #'
 #' @param start,end Numeric vectors specifying the earliest and latest points
 #'   in each interval, respectively. Unequal length vectors are recycled to

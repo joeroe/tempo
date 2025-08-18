@@ -5,6 +5,13 @@
 ## usethis namespace: end
 NULL
 
+#' Internal era methods
+#'
+#' @import era
+#' @keywords internal
+#' @name tempo-era
+NULL
+
 #' Internal rlang methods
 #'
 #' @import rlang

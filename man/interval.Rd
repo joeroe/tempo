@@ -24,7 +24,7 @@ representing a vector of temporal intervals.
 \code{is_interval()} returns a logical value.
 }
 \description{
-The \code{interval} class represents the interval between to points in time.
+The \code{interval} class represents the interval between two points in time.
 }
 \examples{
 interval(c(10, 20, 30), c(20, 30, 40))
