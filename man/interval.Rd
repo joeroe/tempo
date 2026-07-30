@@ -2,24 +2,37 @@
 % Please edit documentation in R/s3-interval.R
 \name{interval}
 \alias{interval}
+\alias{interval.numeric}
+\alias{interval.default}
+\alias{interval.era_yr}
 \alias{is_interval}
 \title{Vectors of temporal intervals}
 \usage{
-interval(start = numeric(), end = numeric())
+interval(start, end = start, ...)
+
+\method{interval}{numeric}(start, end = start, era = NULL, ...)
+
+\method{interval}{default}(start, end = start, ...)
+
+\method{interval}{era_yr}(start, end = start, era = NULL, ...)
 
 is_interval(x)
 }
 \arguments{
-\item{start, end}{Numeric vectors specifying the earliest and latest points
-in each interval, respectively. Unequal length vectors are recycled to
-their common length (if possible) using the rules described in
-\code{\link[vctrs:vec_recycle_common]{vctrs::vec_recycle_common()}}.}
+\item{start, end}{Vectors specifying the earliest and latest points in each
+interval, respectively. Can be numeric or \code{\link[era:yr]{era::yr()}} vectors. Unequal
+length vectors are recycled to their common length (if possible) using the
+rules described in \code{\link[vctrs:vec_recycle_common]{vctrs::vec_recycle_common()}}.}
+
+\item{era}{Optional era label or \code{\link[era:era]{era::era()}} object specifying the era of
+the interval. If this differs from \code{start} or \code{end}, they are harmonised
+using \code{\link[era:yr_transform]{era::yr_transform()}}, if possible.}
 
 \item{x}{Object to test.}
 }
 \value{
-\code{interval()} returns an object with the S3 class \code{"tempo_interval"},
-representing a vector of temporal intervals.
+\code{interval()} returns an object with S3 class \code{"tempo_interval"}, representing
+a vector of temporal intervals.
 
 \code{is_interval()} returns a logical value.
 }
@@ -27,5 +40,12 @@ representing a vector of temporal intervals.
 The \code{interval} class represents the interval between two points in time.
 }
 \examples{
+# Numeric intervals
 interval(c(10, 20, 30), c(20, 30, 40))
+
+# Intervals with calendar era
+interval(era::yr(c(100, 200), "BP"), era::yr(c(50, 100), "BP"))
+
+# Shorthand: numeric inputs with era
+interval(1000, 1500, "CE")
 }

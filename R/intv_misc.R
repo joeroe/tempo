@@ -10,8 +10,11 @@
 #' @param ... Passed to [seq()].
 #'
 #' @return
-#' `intv_duration()` returns a numeric vector of durations.
-#' `intv_seq()` returns a list of numeric vectors, one per interval.
+#' `intv_duration()` returns a numeric vector of durations (even for
+#' [era::yr()]-backed intervals, since durations are not expressed relative to
+#' an epoch).
+#' `intv_seq()` returns a list of numeric vectors (or [era::yr()] vectors for
+#' yr-backed intervals), one per interval.
 #'
 #' @name intv_duration
 #' @examples
@@ -23,8 +26,19 @@ NULL
 #' @rdname intv_duration
 #' @export
 intv_duration <- function(x) {
-  # TODO: yr class should be dropped but isn't
+  UseMethod("intv_duration")
+}
+
+#' @rdname intv_duration
+#' @export
+intv_duration.tempo_interval_numeric <- function(x) {
   intv_end(x) - intv_start(x)
+}
+
+#' @rdname intv_duration
+#' @export
+intv_duration.tempo_interval_era_yr <- function(x) {
+  yr_difference(intv_end(x), intv_start(x))
 }
 
 #' @rdname intv_duration

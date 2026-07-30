@@ -2,11 +2,17 @@
 % Please edit documentation in R/intv_misc.R
 \name{intv_duration}
 \alias{intv_duration}
+\alias{intv_duration.tempo_interval_numeric}
+\alias{intv_duration.tempo_interval_era_yr}
 \alias{intv_seq}
 \alias{seq.tempo_interval}
 \title{Interval durations}
 \usage{
 intv_duration(x)
+
+\method{intv_duration}{tempo_interval_numeric}(x)
+
+\method{intv_duration}{tempo_interval_era_yr}(x)
 
 intv_seq(x, ...)
 
@@ -18,8 +24,11 @@ intv_seq(x, ...)
 \item{...}{Passed to \code{\link[=seq]{seq()}}.}
 }
 \value{
-\code{intv_duration()} returns a numeric vector of durations.
-\code{intv_seq()} returns a list of numeric vectors, one per interval.
+\code{intv_duration()} returns a numeric vector of durations (even for
+\code{\link[era:yr]{era::yr()}}-backed intervals, since durations are not expressed relative to
+an epoch).
+\code{intv_seq()} returns a list of numeric vectors (or \code{\link[era:yr]{era::yr()}} vectors for
+yr-backed intervals), one per interval.
 }
 \description{
 \code{intv_duration()} calculates the duration of each temporal interval.

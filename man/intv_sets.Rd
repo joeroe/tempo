@@ -3,15 +3,33 @@
 \name{intv_sets}
 \alias{intv_sets}
 \alias{intv_union}
+\alias{intv_union.tempo_interval_numeric}
+\alias{intv_union.tempo_interval_era_yr}
 \alias{intv_intersection}
+\alias{intv_intersection.tempo_interval_numeric}
+\alias{intv_intersection.tempo_interval_era_yr}
 \alias{intv_difference}
+\alias{intv_difference.tempo_interval_numeric}
+\alias{intv_difference.tempo_interval_era_yr}
 \title{Set operations for temporal intervals}
 \usage{
 intv_union(...)
 
+\method{intv_union}{tempo_interval_numeric}(...)
+
+\method{intv_union}{tempo_interval_era_yr}(...)
+
 intv_intersection(...)
 
+\method{intv_intersection}{tempo_interval_numeric}(...)
+
+\method{intv_intersection}{tempo_interval_era_yr}(...)
+
 intv_difference(...)
+
+\method{intv_difference}{tempo_interval_numeric}(...)
+
+\method{intv_difference}{tempo_interval_era_yr}(...)
 }
 \arguments{
 \item{...}{Vectors of temporal intervals.}

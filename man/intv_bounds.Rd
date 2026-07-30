@@ -14,12 +14,13 @@ intv_end(x)
 \item{x}{A temporal interval vector (see \code{\link[=interval]{interval()}}).}
 }
 \value{
-A numeric vector the same length as \code{x}.
+A vector the same length as \code{x}, of the same type as the bounds
+(numeric or \code{\link[era:yr]{era::yr()}}).
 }
 \description{
 \code{intv_start()} and \code{intv_end()} extract the bounds of a temporal interval
-vector. The \emph{start} is the chronologically earliest point of each interval; the
-\emph{end} is the chronologically latest point.
+vector. The \emph{start} is the chronologically earliest point of each interval;
+the \emph{end} is the chronologically latest point.
 }
 \examples{
 x <- interval(c(10, 20), c(30, 40))
