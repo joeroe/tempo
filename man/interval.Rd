@@ -13,7 +13,7 @@ is_interval(x)
 \item{start, end}{Numeric vectors specifying the earliest and latest points
 in each interval, respectively. Unequal length vectors are recycled to
 their common length (if possible) using the rules described in
-\code{\link[vctrs:vec_recycle]{vctrs::vec_recycle_common()}}.}
+\code{\link[vctrs:vec_recycle_common]{vctrs::vec_recycle_common()}}.}
 
 \item{x}{Object to test.}
 }

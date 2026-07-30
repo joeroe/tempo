@@ -19,5 +19,10 @@ Useful links:
 \author{
 \strong{Maintainer}: Joe Roe \email{joe@joeroe.io} (\href{https://orcid.org/0000-0002-1011-1244}{ORCID})
 
+Authors:
+\itemize{
+  \item Joe Roe \email{joe@joeroe.io} (\href{https://orcid.org/0000-0002-1011-1244}{ORCID})
+}
+
 }
 \keyword{internal}
