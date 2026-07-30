@@ -14,23 +14,22 @@ status](https://www.r-pkg.org/badges/version/tempo)](https://CRAN.R-project.org/
 coverage](https://codecov.io/gh/joeroe/tempo/graph/badge.svg)](https://app.codecov.io/gh/joeroe/tempo)
 <!-- badges: end -->
 
-***tempo*** is an R package that provides a formal representation of
-intervals between two points in time (periods) and the potential logical
-relations between them.
+**tempo** provides a formal representation of intervals between two
+points in time (periods) and the potential logical relations between
+them in R.
 
 ## Installation
 
 You can install the development version of tempo from GitHub with the
-[remotes](https://remotes.r-lib.org/) package:
+[pak](https://pak.r-lib.org/) package:
 
 ``` r
-remotes::install_github("joeroe/tempo")
+pak::pak("joeroe/tempo")
 ```
 
-## Example
+## Usage
 
-Test whether two periods, specified as numeric vectors of start and end
-dates, are contemporary with each other:
+Create intervals from numeric start and end dates:
 
 ``` r
 library("tempo")
@@ -39,10 +38,22 @@ library("tempo")
 #> Loading required package: vctrs
 #> Loading required package: zeallot
 
-period1 <- c(1500, 1900)
-period2 <- c(1800, 1950)
+intv1 <- interval(1500, 1900)
+intv2 <- interval(1800, 1950)
+```
 
-contemporary_with(period1, period2)
+Or from numeric dates with an era label:
+
+``` r
+interval(1200, 800, "BCE")
+#> <interval[1]>
+#> [1] 1200–800 BCE
+```
+
+Test whether two intervals are contemporary with each other:
+
+``` r
+contemporary_with(intv1, intv2)
 #> [1] TRUE
 ```
 
@@ -54,14 +65,16 @@ By default, comparison of start and end points is inclusive (i.e. using
 relation (i.e. using `>` and `<`):
 
 ``` r
-period3 <- c(1900, 1950)
+intv3 <- interval(1900, 1950)
 
-contemporary_with(period1, period3)
+contemporary_with(intv1, intv3)
 #> [1] TRUE
 
-contemporary_with(period1, period3, strict = TRUE)
+contemporary_with(intv1, intv3, strict = TRUE)
 #> [1] FALSE
 ```
+
+## References
 
 <div id="refs" class="references csl-bib-body hanging-indent"
 entry-spacing="0">

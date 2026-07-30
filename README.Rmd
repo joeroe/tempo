@@ -23,27 +23,37 @@ knitr::opts_chunk$set(
 [![Test coverage](https://codecov.io/gh/joeroe/tempo/graph/badge.svg)](https://app.codecov.io/gh/joeroe/tempo)
 <!-- badges: end -->
 
-***tempo*** is an R package that provides a formal representation of intervals between two points in time (periods) and the potential logical relations between them.
+**tempo** provides a formal representation of intervals between two points in time (periods) and the potential logical relations between them in R.
 
 ## Installation
 
-You can install the development version of tempo from GitHub with the [remotes](https://remotes.r-lib.org/) package:
+You can install the development version of tempo from GitHub with the [pak](https://pak.r-lib.org/) package:
 
 ``` r
-remotes::install_github("joeroe/tempo")
+pak::pak("joeroe/tempo")
 ```
 
-## Example
+## Usage
 
-Test whether two periods, specified as numeric vectors of start and end dates, are contemporary with each other:
+Create intervals from numeric start and end dates:
 
-```{r}
+```{r eg-interval}
 library("tempo")
 
-period1 <- c(1500, 1900)
-period2 <- c(1800, 1950)
+intv1 <- interval(1500, 1900)
+intv2 <- interval(1800, 1950)
+```
 
-contemporary_with(period1, period2)
+Or from numeric dates with an era label:
+
+```{r eg-interval-era}
+interval(1200, 800, "BCE")
+```
+
+Test whether two intervals are contemporary with each other:
+
+```{r eg-contemporary_with}
+contemporary_with(intv1, intv2)
 ```
 
 tempo supports fifteen types of temporal relations following Levy's typology [@LevyEtAl2021; @Levy2025].
@@ -52,11 +62,12 @@ See `?relations` for a list.
 By default, comparison of start and end points is inclusive (i.e. using `>=` and `<=`).
 `strict = TRUE` enables the 'strict' variants of each relation (i.e. using `>` and `<`):
 
-```{r}
-period3 <- c(1900, 1950)
+```{r eg-contemporary_with-strict}
+intv3 <- interval(1900, 1950)
 
-contemporary_with(period1, period3)
+contemporary_with(intv1, intv3)
 
-contemporary_with(period1, period3, strict = TRUE)
+contemporary_with(intv1, intv3, strict = TRUE)
 ```
 
+## References
