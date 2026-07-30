@@ -5,12 +5,12 @@
 
 <!-- badges: start -->
 
-[![CRAN
-status](https://www.r-pkg.org/badges/version/tempo)](https://CRAN.R-project.org/package=tempo)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/tempo)](https://CRAN.R-project.org/package=tempo)
 [![R-CMD-check](https://github.com/joeroe/tempo/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/joeroe/tempo/actions/workflows/R-CMD-check.yaml)
-[![Codecov test
+[![Test
 coverage](https://codecov.io/gh/joeroe/tempo/graph/badge.svg)](https://app.codecov.io/gh/joeroe/tempo)
 <!-- badges: end -->
 
@@ -34,7 +34,10 @@ dates, are contemporary with each other:
 
 ``` r
 library("tempo")
+#> Loading required package: era
 #> Loading required package: rlang
+#> Loading required package: vctrs
+#> Loading required package: zeallot
 
 period1 <- c(1500, 1900)
 period2 <- c(1800, 1950)

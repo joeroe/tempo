@@ -98,8 +98,27 @@ vec_ptype_full.tempo_interval <- function(x, ...) "interval"
 # Accessors
 #
 
+#' Temporal interval bounds
+#'
+#' `intv_start()` and `intv_end()` extract the bounds of a temporal interval
+#' vector. The *start* is the chronologically earliest point of each interval; the
+#' *end* is the chronologically latest point.
+#'
+#' @param x A temporal interval vector (see [interval()]).
+#'
+#' @return A numeric vector the same length as `x`.
+#'
+#' @name intv_bounds
+#' @examples
+#' x <- interval(c(10, 20), c(30, 40))
+#' intv_start(x)
+#' intv_end(x)
+NULL
+
+#' @rdname intv_bounds
 #' @export
 intv_start <- function(x) field(x, "start")
 
+#' @rdname intv_bounds
 #' @export
 intv_end <- function(x) field(x, "end")

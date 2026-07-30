@@ -1,17 +1,39 @@
 # intv_misc.R
 # Miscellaneous interval methods
 
+#' Interval durations
+#'
+#' `intv_duration()` calculates the duration of each temporal interval.
+#' `intv_seq()` generates sequences of values within each temporal interval.
+#'
+#' @param x A temporal interval vector (see [interval()]).
+#' @param ... Passed to [seq()].
+#'
+#' @return
+#' `intv_duration()` returns a numeric vector of durations.
+#' `intv_seq()` returns a list of numeric vectors, one per interval.
+#'
+#' @name intv_duration
+#' @examples
+#' x <- interval(c(10, 20), c(30, 40))
+#' intv_duration(x)
+#' intv_seq(x, by = 5)
+NULL
+
+#' @rdname intv_duration
 #' @export
 intv_duration <- function(x) {
   # TODO: yr class should be dropped but isn't
   intv_end(x) - intv_start(x)
 }
 
+#' @rdname intv_duration
 #' @export
 intv_seq <- function(x, ...) {
   purrr::map(x, seq, ...)
 }
 
+#' @rdname intv_duration
 #' @export
 seq.tempo_interval <- function(x, ...) {
   if (vec_size(x) > 1) {
