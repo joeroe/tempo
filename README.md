@@ -47,9 +47,7 @@ contemporary_with(period1, period2)
 ```
 
 tempo supports fifteen types of temporal relations following Levy’s
-typology (Levy et al. 2021 <https://doi.org/10.1016/j.jas.2020.105225>;
-Levy 2025 <https://doi.org/10.1111/arcm.13080>). See `?relations` for a
-list.
+typology (Levy et al. 2021; Levy 2025). See `?relations` for a list.
 
 By default, comparison of start and end points is inclusive (i.e. using
 `>=` and `<=`). `strict = TRUE` enables the ‘strict’ variants of each
@@ -64,3 +62,25 @@ contemporary_with(period1, period3)
 contemporary_with(period1, period3, strict = TRUE)
 #> [1] FALSE
 ```
+
+<div id="refs" class="references csl-bib-body hanging-indent"
+entry-spacing="0">
+
+<div id="ref-Levy2025" class="csl-entry">
+
+Levy, E. 2025. “Temporal Relations in Archaeology: A Survey and a New
+Typology.” *Archaeometry* 67 (S1): 178–99.
+<https://doi.org/10.1111/arcm.13080>.
+
+</div>
+
+<div id="ref-LevyEtAl2021" class="csl-entry">
+
+Levy, E., G. Geeraerts, F. Pluquet, E. Piasetzky, and A. Fantalkin.
+2021. “Chronological Networks in Archaeology: A Formalised Scheme.”
+*Journal of Archaeological Science* 127: 105225.
+<https://doi.org/10.1016/j.jas.2020.105225>.
+
+</div>
+
+</div>

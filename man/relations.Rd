@@ -95,8 +95,7 @@ Logical vector the same length as \code{x} and \code{y}.
 }
 \description{
 These functions test for the logical relation between two periods according
-to Levy's typology (Levy et al. 2021 \url{https://doi.org/10.1016/j.jas.2020.105225};
-Levy 2025 \url{https://doi.org/10.1111/arcm.13080}).
+to Levy's typology \insertCite{LevyEtAl2021,Levy2025}{tempo}.
 }
 \examples{
 period1 <- c(1500, 1900)
@@ -110,4 +109,7 @@ contemporary_with(period1, period3)
 
 # Strict relations
 contemporary_with(period1, period3, strict = TRUE)
+}
+\references{
+\insertAllCited{}
 }
