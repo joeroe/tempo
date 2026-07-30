@@ -41,7 +41,7 @@ starts_before_end_of <- function(x, y, strict = FALSE) {
 #' @rdname relations
 #' @export
 ends_after_start_of <- function(x, y, strict = FALSE) {
-  gt(start_of(x), end_of(y), strict)
+  gt(end_of(x), start_of(y), strict)
 }
 
 #' @rdname relations
@@ -115,6 +115,20 @@ includes_start_of <- function(x, y, strict = FALSE) {
 
 #' @rdname relations
 #' @export
+ends_during <- function(x, y, strict = FALSE) {
+  lt(start_of(y), end_of(x), strict) &
+    lt(end_of(x), end_of(y), strict)
+}
+
+#' @rdname relations
+#' @export
+includes_end_of <- function(x, y, strict = FALSE) {
+  lt(start_of(x), end_of(y), strict) &
+    lt(end_of(y), end_of(x), strict)
+}
+
+#' @rdname relations
+#' @export
 starts_with <- function(x, y, strict = FALSE) { 
   start_of(x) == start_of(y)
 }
@@ -173,14 +187,14 @@ begun_by <- function(x, y, strict = FALSE) {
 #' @export
 ends <- function(x, y, strict = FALSE) { 
   (end_of(x) == end_of(y)) &
-    gt(start_of(x), start_of(y))
+    gt(start_of(x), start_of(y), strict)
 }
 
 #' @rdname relations
 #' @export
 ended_by <- function(x, y, strict = FALSE) { 
   (end_of(x) == end_of(y)) &
-    lt(start_of(x), start_of(y))
+    lt(start_of(x), start_of(y), strict)
 }
 
 #' @rdname relations

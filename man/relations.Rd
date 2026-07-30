@@ -15,6 +15,8 @@
 \alias{contemporary_with}
 \alias{starts_during}
 \alias{includes_start_of}
+\alias{ends_during}
+\alias{includes_end_of}
 \alias{starts_with}
 \alias{ends_with}
 \alias{overlaps_before}
@@ -53,6 +55,10 @@ contemporary_with(x, y, strict = FALSE)
 starts_during(x, y, strict = FALSE)
 
 includes_start_of(x, y, strict = FALSE)
+
+ends_during(x, y, strict = FALSE)
+
+includes_end_of(x, y, strict = FALSE)
 
 starts_with(x, y, strict = FALSE)
 
