@@ -3,3 +3,6 @@
 ^\.github$
 ^\.lintr$
 AGENTS.md
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

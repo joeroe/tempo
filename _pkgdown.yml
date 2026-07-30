@@ -1,0 +1,19 @@
+url: https://tempo.joeroe.io
+template:
+  bootstrap: 5
+
+authors:
+  Joe Roe:
+    href: "https://joeroe.io"
+
+reference:
+- title: "Temporal intervals"
+  desc: "Functions for working with spans of time"
+- contents:
+  - interval
+  - starts_with("intv_")
+- title: "Temporal relations"
+  desc: "Functions for testing the logical relations between temporal intervals"
+- contents:
+  - relations
+
