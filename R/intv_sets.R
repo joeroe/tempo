@@ -18,15 +18,14 @@ NULL
 #' @export
 intv_union <- function(...) {
   # TODO: maybe follow base's x, y signature instead?
-  new_interval(yr_earliest(intv_start(c(...))), yr_latest(intv_end(c(...))))
+  new_interval(min(intv_start(c(...))), max(intv_end(c(...))))
 }
 
 #' @rdname intv_sets
 #' @export
 intv_intersection <- function(...) {
   set <- c(...)
-  # TODO: test for overlap first
-  new_interval(yr_latest(intv_start(set)), yr_earliest(intv_end(set)))
+  new_interval(max(intv_start(set)), min(intv_end(set)))
 }
 
 #' @rdname intv_sets

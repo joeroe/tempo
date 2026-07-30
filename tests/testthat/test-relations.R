@@ -122,9 +122,45 @@ test_that("temporal relations functions have logically correct result", {
 })
 
 test_that("temporal relations functions respect 'strict' parameter", {
- # TODO
+  x_touching <- c(0, 1)
+  y_touching <- c(1, 2)
+
+  expect_true(contemporary_with(x_touching, y_touching))
+  expect_false(contemporary_with(x_touching, y_touching, strict = TRUE))
+
+  expect_true(starts_before_end_of(c(1, 2), c(0, 1)))
+  expect_false(starts_before_end_of(c(1, 2), c(0, 1), strict = TRUE))
+
+  expect_true(ends_after_start_of(c(1, 2), c(0, 1)))
+  expect_false(ends_after_start_of(c(1, 2), c(0, 1), strict = TRUE))
+
+  expect_true(ends_before_end_of(c(0, 1), c(0, 1)))
+  expect_false(ends_before_end_of(c(0, 1), c(0, 1), strict = TRUE))
+
+  expect_true(ends_after_end_of(c(0, 1), c(0, 1)))
+  expect_false(ends_after_end_of(c(0, 1), c(0, 1), strict = TRUE))
 })
 
 test_that("temporal relations functions are vectorised", {
- # TODO
+  x <- list(c(0, 2), c(1, 3), c(5, 6))
+  y <- list(c(1, 3), c(2, 4), c(7, 8))
+
+  result <- contemporary_with(x, y)
+  expect_length(result, 3)
+  expect_true(result[1])
+  expect_true(result[2])
+  expect_false(result[3])
+
+  result <- starts_before_start_of(x, y)
+  expect_length(result, 3)
+  expect_true(result[1])
+  expect_true(result[2])
+  expect_true(result[3])
+
+  result <- equal_to(x, y)
+  expect_length(result, 3)
+  expect_false(result[1])
+  expect_false(result[2])
+  expect_false(result[3])
+  expect_true(equal_to(list(c(0, 1)), list(c(0, 1))))
 })
