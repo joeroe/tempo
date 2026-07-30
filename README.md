@@ -48,7 +48,8 @@ contemporary_with(period1, period2)
 
 tempo supports fifteen types of temporal relations following Levy’s
 typology (Levy et al. 2021 <https://doi.org/10.1016/j.jas.2020.105225>;
-Levy et al. in press). See `?relations` for a list.
+Levy 2025 <https://doi.org/10.1111/arcm.13080>). See `?relations` for a
+list.
 
 By default, comparison of start and end points is inclusive (i.e. using
 `>=` and `<=`). `strict = TRUE` enables the ‘strict’ variants of each

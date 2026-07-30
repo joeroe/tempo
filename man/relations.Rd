@@ -96,7 +96,7 @@ Logical vector the same length as \code{x} and \code{y}.
 \description{
 These functions test for the logical relation between two periods according
 to Levy's typology (Levy et al. 2021 \url{https://doi.org/10.1016/j.jas.2020.105225};
-Levy in press).
+Levy 2025 \url{https://doi.org/10.1111/arcm.13080}).
 }
 \examples{
 period1 <- c(1500, 1900)

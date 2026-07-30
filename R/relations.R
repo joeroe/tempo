@@ -5,7 +5,7 @@
 #' 
 #' These functions test for the logical relation between two periods according
 #' to Levy's typology (Levy et al. 2021 <https://doi.org/10.1016/j.jas.2020.105225>;
-#' Levy in press).
+#' Levy 2025 <https://doi.org/10.1111/arcm.13080>).
 #'
 #' @param x,y Pair(s) of periods to test the relation between, each specified as 
 #'   a two-element numeric vector with start and end times. Use lists to give
