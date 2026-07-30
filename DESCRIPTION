@@ -10,14 +10,13 @@ URL: https://tempo.joeroe.io, https://github.com/joeroe/tempo
 BugReports: https://github.com/joeroe/tempo/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-Depends:
+Imports:
     era (> 0.5.0),
+    purrr,
+    Rdpack,
     rlang,
     vctrs,
     zeallot
-Imports:
-    purrr,
-    Rdpack
 Suggests: 
     knitr,
     rmarkdown,
