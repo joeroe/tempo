@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 # tempo
 
 <!-- badges: start -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![CRAN status](https://www.r-pkg.org/badges/version/tempo)](https://CRAN.R-project.org/package=tempo)
 [![R-CMD-check](https://github.com/joeroe/tempo/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/joeroe/tempo/actions/workflows/R-CMD-check.yaml)
 [![Test coverage](https://codecov.io/gh/joeroe/tempo/graph/badge.svg)](https://app.codecov.io/gh/joeroe/tempo)
