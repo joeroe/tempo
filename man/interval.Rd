@@ -24,6 +24,8 @@ interval, respectively. Can be numeric or \code{\link[era:yr]{era::yr()}} vector
 length vectors are recycled to their common length (if possible) using the
 rules described in \code{\link[vctrs:vec_recycle_common]{vctrs::vec_recycle_common()}}.}
 
+\item{...}{Arguments passed to methods.}
+
 \item{era}{Optional era label or \code{\link[era:era]{era::era()}} object specifying the era of
 the interval. If this differs from \code{start} or \code{end}, they are harmonised
 using \code{\link[era:yr_transform]{era::yr_transform()}}, if possible.}

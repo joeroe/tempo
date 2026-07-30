@@ -6,9 +6,9 @@
 #' These functions test for the logical relation between two periods according
 #' to Levy's typology \insertCite{LevyEtAl2021,Levy2025}{tempo}.
 #'
-#' @param x,y Pair(s) of periods to test the relation between, each specified as
-#'   a two-element numeric vector with start and end times. Use lists to give
-#'   multiple periods.
+#' @param x,y Pair(s) of periods to test the relation between. Can be
+#'   [interval()] objects, two-element numeric vectors, or lists of two-element
+#'   numeric vectors.
 #' @param strict By default, comparison is inclusive (i.e. using `<=` and `>=`).
 #'   Use `strict = FALSE` for strict comparison (i.e. using `<` and `>`).
 #'
@@ -26,12 +26,12 @@
 #' period1 <- c(1500, 1900)
 #' period2 <- c(1800, 1950)
 #' period3 <- c(1900, 1950)
-#' 
+#'
 #' contemporary_with(period1, period2)
-#' 
+#'
 #' # Inclusive relations (the default)
 #' contemporary_with(period1, period3)
-#' 
+#'
 #' # Strict relations
 #' contemporary_with(period1, period3, strict = TRUE)
 NULL
@@ -62,13 +62,13 @@ starts_after_start_of <- function(x, y, strict = FALSE) {
 
 #' @rdname relations
 #' @export
-ends_before_end_of <- function(x, y, strict = FALSE) { 
+ends_before_end_of <- function(x, y, strict = FALSE) {
   lt(end_of(x), end_of(y), strict)
 }
 
 #' @rdname relations
 #' @export
-ends_after_end_of <- function(x, y, strict = FALSE) { 
+ends_after_end_of <- function(x, y, strict = FALSE) {
   gt(end_of(x), end_of(y), strict)
 }
 
@@ -80,7 +80,7 @@ ends_before_start_of <- function(x, y, strict = FALSE) {
 
 #' @rdname relations
 #' @export
-starts_after_end_of <- function(x, y, strict = FALSE) { 
+starts_after_end_of <- function(x, y, strict = FALSE) {
   gt(start_of(x), end_of(y), strict)
 }
 
@@ -99,7 +99,7 @@ met_by <- function(x, y, strict = FALSE) {
 #' @rdname relations
 #' @export
 contemporary_with <- function(x, y, strict = FALSE) {
-  gt(end_of(x), start_of(y), strict) & 
+  gt(end_of(x), start_of(y), strict) &
     lt(start_of(x), end_of(y), strict)
 }
 
@@ -112,7 +112,7 @@ starts_during <- function(x, y, strict = FALSE) {
 
 #' @rdname relations
 #' @export
-includes_start_of <- function(x, y, strict = FALSE) { 
+includes_start_of <- function(x, y, strict = FALSE) {
   lt(start_of(x), start_of(y), strict) &
     lt(start_of(y), end_of(x), strict)
 }
@@ -133,7 +133,7 @@ includes_end_of <- function(x, y, strict = FALSE) {
 
 #' @rdname relations
 #' @export
-starts_with <- function(x, y, strict = FALSE) { 
+starts_with <- function(x, y, strict = FALSE) {
   start_of(x) == start_of(y)
 }
 
@@ -145,7 +145,7 @@ ends_with <- function(x, y, strict = FALSE) {
 
 #' @rdname relations
 #' @export
-overlaps_before <- function(x, y, strict = FALSE) { 
+overlaps_before <- function(x, y, strict = FALSE) {
   lt(start_of(x), start_of(y), strict) &
     lt(start_of(y), end_of(x), strict) &
     lt(end_of(x), end_of(y), strict)
@@ -153,7 +153,7 @@ overlaps_before <- function(x, y, strict = FALSE) {
 
 #' @rdname relations
 #' @export
-overlaps_after <- function(x, y, strict = FALSE) { 
+overlaps_after <- function(x, y, strict = FALSE) {
   lt(start_of(y), start_of(x), strict) &
     lt(start_of(x), end_of(y), strict) &
     lt(end_of(y), end_of(x), strict)
@@ -161,42 +161,42 @@ overlaps_after <- function(x, y, strict = FALSE) {
 
 #' @rdname relations
 #' @export
-includes <- function(x, y, strict = FALSE) { 
+includes <- function(x, y, strict = FALSE) {
   lt(start_of(x), start_of(y), strict) &
     gt(end_of(x), end_of(y), strict)
 }
 
 #' @rdname relations
 #' @export
-included_in <- function(x, y, strict = FALSE) { 
+included_in <- function(x, y, strict = FALSE) {
   gt(start_of(x), start_of(y), strict) &
     lt(end_of(x), end_of(y), strict)
 }
 
 #' @rdname relations
 #' @export
-begins <- function(x, y, strict = FALSE) { 
+begins <- function(x, y, strict = FALSE) {
   (start_of(x) == start_of(y)) &
     lt(end_of(x), end_of(y), strict)
 }
 
 #' @rdname relations
 #' @export
-begun_by <- function(x, y, strict = FALSE) { 
+begun_by <- function(x, y, strict = FALSE) {
   (start_of(x) == start_of(y)) &
     gt(end_of(x), end_of(y), strict)
 }
 
 #' @rdname relations
 #' @export
-ends <- function(x, y, strict = FALSE) { 
+ends <- function(x, y, strict = FALSE) {
   (end_of(x) == end_of(y)) &
     gt(start_of(x), start_of(y), strict)
 }
 
 #' @rdname relations
 #' @export
-ended_by <- function(x, y, strict = FALSE) { 
+ended_by <- function(x, y, strict = FALSE) {
   (end_of(x) == end_of(y)) &
     lt(start_of(x), start_of(y), strict)
 }
@@ -204,7 +204,7 @@ ended_by <- function(x, y, strict = FALSE) {
 #' @rdname relations
 #' @export
 #  N.B. `equal_to` not `equals` to avoid conflict with `magrittr::equals`
-equal_to <- function(x, y, strict = FALSE) { 
+equal_to <- function(x, y, strict = FALSE) {
   (start_of(x) == start_of(y)) &
     (end_of(x) == end_of(y))
 }
@@ -225,4 +225,3 @@ gt <- function(x, y, strict = FALSE) {
   if (isTRUE(strict)) x > y
   else x >= y
 }
-

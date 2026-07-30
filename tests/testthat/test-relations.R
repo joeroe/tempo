@@ -257,3 +257,33 @@ test_that("temporal relations functions are vectorised", {
   expect_false(result[3])
   expect_true(equal_to(list(c(0, 1)), list(c(0, 1))))
 })
+
+# tempo_interval inputs ---------------------------------------------------
+
+test_that("start_of() and end_of() work with tempo_interval_numeric", {
+  intv <- interval(c(0, 2), c(1, 3))
+  expect_equal(start_of(intv), c(0, 2))
+  expect_equal(end_of(intv), c(1, 3))
+})
+
+test_that("start_of() and end_of() work with tempo_interval_era_yr", {
+  intv <- interval(era::yr(c(100, 200), "CE"), era::yr(c(150, 250), "CE"))
+  expect_equal(start_of(intv), era::yr(c(100, 200), "CE"))
+  expect_equal(end_of(intv), era::yr(c(150, 250), "CE"))
+})
+
+test_that("relations functions work with tempo_interval_numeric", {
+  x <- interval(0, 2)
+  y <- interval(1, 3)
+  expect_true(starts_before_end_of(x, y))
+  expect_true(contemporary_with(x, y))
+  expect_true(overlaps_before(x, y))
+})
+
+test_that("relations functions work with tempo_interval_era_yr", {
+  x <- interval(era::yr(100, "CE"), era::yr(200, "CE"))
+  y <- interval(era::yr(150, "CE"), era::yr(250, "CE"))
+  expect_true(starts_before_end_of(x, y))
+  expect_true(contemporary_with(x, y))
+  expect_true(overlaps_before(x, y))
+})

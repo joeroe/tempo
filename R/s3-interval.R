@@ -14,6 +14,7 @@
 #' @param era Optional era label or [era::era()] object specifying the era of
 #'   the interval. If this differs from `start` or `end`, they are harmonised
 #'   using [era::yr_transform()], if possible.
+#' @param ... Arguments passed to methods.
 #'
 #' @return
 #' `interval()` returns an object with S3 class `"tempo_interval"`, representing
