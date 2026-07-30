@@ -30,10 +30,6 @@ and testing the logical relations between them.
 ``` r
 
 library("tempo")
-#> Loading required package: era
-#> Loading required package: rlang
-#> Loading required package: vctrs
-#> Loading required package: zeallot
 ```
 
 ## Temporal intervals
@@ -194,8 +190,9 @@ Allen, J. F. 1983. “Maintaining Knowledge about Temporal Intervals.”
 *Communications of the ACM* 26 (11): 832–43.
 <https://doi.org/10.1145/182.358434>.
 
-Holst, M. K. 2001. *Formalizing Fact and Fiction in Four Dimensions: A
-Relational Description of Temporal Structures in Settlements*. 159–64.
+Holst, M. K. 2001. “Formalizing Fact and Fiction in Four Dimensions: A
+Relational Description of Temporal Structures in Settlements.” In
+*Computing Archaeology for Understanding the Past*.
 
 Holst, M. K. 2004. “Complicated Relations and Blind Dating: Formal
 Analysis of Relative Chronological Structures.” In *Tools for
