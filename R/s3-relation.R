@@ -81,8 +81,37 @@ new_relation <- function(...) {
   result
 }
 
-#' @noRd
-#' @keywords internal
+#' Temporal relation definitions
+#'
+#' Retrieve the declarative definitions of temporal relations by name.
+#' This function returns the underlying predicate structures that define
+#' each relation, which can be useful for programmatic inspection or
+#' integration with other temporal reasoning systems.
+#'
+#' @param name Character vector of relation names (without the `_relation` suffix).
+#'   Valid names include: "starts_before_end_of", "ends_after_start_of",
+#'   "starts_before_start_of", "starts_after_start_of", "ends_before_end_of",
+#'   "ends_after_end_of", "ends_before_start_of", "starts_after_end_of",
+#'   "meets", "met_by", "contemporary_with", "starts_during", "includes_start_of",
+#'   "ends_during", "includes_end_of", "starts_with", "ends_with",
+#'   "overlaps_before", "overlaps_after", "includes", "included_in",
+#'   "begins", "begun_by", "ends", "ended_by", "equal_to".
+#'
+#' @return A named list of relation definitions. Each element is a list of
+#'   predicates that define the relation.
+#'
+#' @export
+#'
+#' @examples
+#' # Get a single relation definition
+#' relation("meets")
+#'
+#' # Get multiple relations
+#' relation(c("meets", "contemporary_with"))
+#'
+#' # Inspect the structure
+#' meets_def <- relation("meets")
+#' str(meets_def)
 relation <- function(name) {
   if (!is.character(name)) {
     abort(
