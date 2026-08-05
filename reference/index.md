@@ -50,3 +50,5 @@ Functions for testing the logical relations between temporal intervals
   [`ended_by()`](https://tempo.joeroe.io/reference/relations.md)
   [`equal_to()`](https://tempo.joeroe.io/reference/relations.md) :
   Temporal relations
+- [`relation()`](https://tempo.joeroe.io/reference/relation.md) :
+  Temporal relation definitions
