@@ -16,4 +16,5 @@ reference:
   desc: "Functions for testing the logical relations between temporal intervals"
 - contents:
   - relations
+  - relation
 
