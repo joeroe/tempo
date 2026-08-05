@@ -2,7 +2,9 @@
 ^README\.Rmd$
 ^\.github$
 ^\.lintr$
-AGENTS.md
+^AGENTS.md$
+^PLAN$
+^TODO$
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
