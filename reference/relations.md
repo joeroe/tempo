@@ -70,7 +70,7 @@ equal_to(x, y, strict = FALSE)
 - strict:
 
   By default, comparison is inclusive (i.e. using `<=` and `>=`). Use
-  `strict = FALSE` for strict comparison (i.e. using `<` and `>`).
+  `strict = TRUE` for strict comparison (i.e. using `<` and `>`).
 
 ## Value
 
