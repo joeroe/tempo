@@ -88,7 +88,7 @@ equal_to(x, y, strict = FALSE)
 numeric vectors.}
 
 \item{strict}{By default, comparison is inclusive (i.e. using \code{<=} and \code{>=}).
-Use \code{strict = FALSE} for strict comparison (i.e. using \code{<} and \code{>}).}
+Use \code{strict = TRUE} for strict comparison (i.e. using \code{<} and \code{>}).}
 }
 \value{
 Logical vector the same length as \code{x} and \code{y}.
