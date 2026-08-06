@@ -2,31 +2,38 @@
 % Please edit documentation in R/s3-relation.R
 \name{relation}
 \alias{relation}
-\title{Temporal relation definitions}
+\alias{relation_names}
+\title{Get relation definitions by name}
 \usage{
 relation(name)
+
+relation_names()
 }
 \arguments{
 \item{name}{Character vector of relation names (without the \verb{_relation} suffix).
-Valid names include: "starts_before_end_of", "ends_after_start_of",
-"starts_before_start_of", "starts_after_start_of", "ends_before_end_of",
-"ends_after_end_of", "ends_before_start_of", "starts_after_end_of",
-"meets", "met_by", "contemporary_with", "starts_during", "includes_start_of",
-"ends_during", "includes_end_of", "starts_with", "ends_with",
-"overlaps_before", "overlaps_after", "includes", "included_in",
-"begins", "begun_by", "ends", "ended_by", "equal_to".}
+Use \code{relation_names()} to see all available names.}
 }
 \value{
-A named list of relation definitions. Each element is a list of
+\itemize{
+\item \code{relation()} returns a named list of relation definitions. Each element is a list of
 predicates that define the relation.
+\item \code{relation_names()} returns a character vector of available relation names.
+}
 }
 \description{
-Retrieve the declarative definitions of temporal relations by name.
+\code{relation()} retrieves the declarative definitions of temporal relations by name.
 This function returns the underlying predicate structures that define
 each relation, which can be useful for programmatic inspection or
 integration with other temporal reasoning systems.
 }
+\details{
+\code{relation_names()} lists all available relation names that can be used with
+\code{relation()}.
+}
 \examples{
+# List all available relations
+relation_names()
+
 # Get a single relation definition
 relation("meets")
 

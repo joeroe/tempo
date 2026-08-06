@@ -81,28 +81,31 @@ new_relation <- function(...) {
   result
 }
 
-#' Temporal relation definitions
+#' Get relation definitions by name
 #'
-#' Retrieve the declarative definitions of temporal relations by name.
+#' `relation()` retrieves the declarative definitions of temporal relations by name.
 #' This function returns the underlying predicate structures that define
 #' each relation, which can be useful for programmatic inspection or
 #' integration with other temporal reasoning systems.
 #'
-#' @param name Character vector of relation names (without the `_relation` suffix).
-#'   Valid names include: "starts_before_end_of", "ends_after_start_of",
-#'   "starts_before_start_of", "starts_after_start_of", "ends_before_end_of",
-#'   "ends_after_end_of", "ends_before_start_of", "starts_after_end_of",
-#'   "meets", "met_by", "contemporary_with", "starts_during", "includes_start_of",
-#'   "ends_during", "includes_end_of", "starts_with", "ends_with",
-#'   "overlaps_before", "overlaps_after", "includes", "included_in",
-#'   "begins", "begun_by", "ends", "ended_by", "equal_to".
+#' `relation_names()` lists all available relation names that can be used with
+#' `relation()`.
 #'
-#' @return A named list of relation definitions. Each element is a list of
+#' @param name Character vector of relation names (without the `_relation` suffix).
+#'   Use `relation_names()` to see all available names.
+#'
+#' @return 
+#' - `relation()` returns a named list of relation definitions. Each element is a list of
 #'   predicates that define the relation.
+#' - `relation_names()` returns a character vector of available relation names.
 #'
 #' @export
+#' @rdname relation
 #'
 #' @examples
+#' # List all available relations
+#' relation_names()
+#'
 #' # Get a single relation definition
 #' relation("meets")
 #'
@@ -121,27 +124,43 @@ relation <- function(name) {
   }
 
   # Look up relation definitions
-  relation_names <- paste0(name, "_relation")
+  relation_fns <- paste0(name, "_relation")
   env <- rlang::current_env()
 
   # Check all names exist
-  missing <- !purrr::map_lgl(relation_names, exists, envir = env, inherits = TRUE)
+  missing <- !purrr::map_lgl(relation_fns, exists, envir = env, inherits = TRUE)
   if (any(missing)) {
     abort(
       c(
         "Unknown relation name(s).",
-        x = paste(name[missing], collapse = ", ")
+        x = paste(name[missing], collapse = ", "),
+        i = paste("Available relations:", paste(relation_names(), collapse = ", "))
       ),
       class = "tempo_invalid_argument"
     )
   }
 
   # Retrieve and combine
-  relation_fns <- purrr::map(relation_names, get, envir = env, inherits = TRUE)
+  relation_fns <- purrr::map(relation_fns, get, envir = env, inherits = TRUE)
   relations <- purrr::map(relation_fns, function(fn) fn())
   result <- vec_c(!!!relations)
   names(result) <- name
   result
+}
+
+#' @rdname relation
+#' @export
+relation_names <- function() {
+  # Find all objects ending in "_relation" in the package namespace
+  env <- asNamespace("tempo")
+  all_objects <- ls(env, pattern = "_relation$")
+  
+  # Exclude infrastructure functions (new_relation, evaluate_relation, format.tempo_relation)
+  infrastructure <- c("new_relation", "evaluate_relation", "format.tempo_relation")
+  relation_objects <- setdiff(all_objects, infrastructure)
+  
+  # Strip the "_relation" suffix
+  gsub("_relation$", "", relation_objects)
 }
 
 # Relation evaluation ----------------------------------------------------------
