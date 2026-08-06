@@ -1,14 +1,16 @@
-# Temporal relation definitions
+# Get relation definitions by name
 
-Retrieve the declarative definitions of temporal relations by name. This
-function returns the underlying predicate structures that define each
-relation, which can be useful for programmatic inspection or integration
-with other temporal reasoning systems.
+`relation()` retrieves the declarative definitions of temporal relations
+by name. This function returns the underlying predicate structures that
+define each relation, which can be useful for programmatic inspection or
+integration with other temporal reasoning systems.
 
 ## Usage
 
 ``` r
 relation(name)
+
+relation_names()
 ```
 
 ## Arguments
@@ -16,23 +18,36 @@ relation(name)
 - name:
 
   Character vector of relation names (without the `_relation` suffix).
-  Valid names include: "starts_before_end_of", "ends_after_start_of",
-  "starts_before_start_of", "starts_after_start_of",
-  "ends_before_end_of", "ends_after_end_of", "ends_before_start_of",
-  "starts_after_end_of", "meets", "met_by", "contemporary_with",
-  "starts_during", "includes_start_of", "ends_during",
-  "includes_end_of", "starts_with", "ends_with", "overlaps_before",
-  "overlaps_after", "includes", "included_in", "begins", "begun_by",
-  "ends", "ended_by", "equal_to".
+  Use `relation_names()` to see all available names.
 
 ## Value
 
-A named list of relation definitions. Each element is a list of
-predicates that define the relation.
+- `relation()` returns a named list of relation definitions. Each
+  element is a list of predicates that define the relation.
+
+- `relation_names()` returns a character vector of available relation
+  names.
+
+## Details
+
+`relation_names()` lists all available relation names that can be used
+with `relation()`.
 
 ## Examples
 
 ``` r
+# List all available relations
+relation_names()
+#>  [1] "begins"                 "begun_by"               "contemporary_with"     
+#>  [4] "ended_by"               "ends_after_end_of"      "ends_after_start_of"   
+#>  [7] "ends_before_end_of"     "ends_before_start_of"   "ends_during"           
+#> [10] "ends"                   "ends_with"              "equal_to"              
+#> [13] "included_in"            "includes_end_of"        "includes"              
+#> [16] "includes_start_of"      "meets"                  "met_by"                
+#> [19] "overlaps_after"         "overlaps_before"        "starts_after_end_of"   
+#> [22] "starts_after_start_of"  "starts_before_end_of"   "starts_before_start_of"
+#> [25] "starts_during"          "starts_with"           
+
 # Get a single relation definition
 relation("meets")
 #> <tempo_relation[1]>
